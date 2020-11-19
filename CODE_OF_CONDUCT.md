@@ -29,7 +29,7 @@ For the DSCI 522 project, group 26 is committed to forming a friendly and effect
 Members who violated the Code of Conduct will be asked to stop the behaviour and are expected to comply immediately. If the member(s) continues to engage in activities violating this code of conduct, teach staff will be notified to impose corresponding consequences according to the school policy. 
 
 #### **Reporting guideline**  
-If someone violates this Code of Conduct, we ask that you report it to the DSCI 522 Instructor(s). The current instructor is Tiffany Timbers. An email to [tiffany.timbers@stat.ubc.ca](mailto:tiffany.timbers@stat.ubc.ca) will be seen by Tiffany Timbers. Alternatively, you may contact Arjun Baghela, Teaching Assistant of this course. His email is [arjunsbaghela@gmail.com](mailto:arjunsbaghela@gmail.com).
+If someone violates this Code of Conduct, we ask that you report it to the DSCI 522 Instructor(s). The current instructor is Tiffany Timbers. An email to [tiffany.timbers@stat.ubc.ca](mailto:tiffany.timbers@stat.ubc.ca) will be seen by Tiffany Timbers. Alternatively, you may contact Arjun Baghela, a current Teaching Assistant of this course. His email is [arjunsbaghela@gmail.com](mailto:arjunsbaghela@gmail.com).
 
 ## Attribution
 - This Code of Conduct is adapted from the [UBC Data Science 100 Code of Conduct](https://github.com/UBC-DSCI/dsci-100/blob/master/CODE_OF_CONDUCT.md)
