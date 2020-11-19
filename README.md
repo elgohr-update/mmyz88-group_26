@@ -1,2 +1,2 @@
 # group_26
-Group repository for DSCI 552, Group 26
+Group repository for DSCI 522, Group 26
