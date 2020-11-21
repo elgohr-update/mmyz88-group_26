@@ -6,10 +6,9 @@ Group repository for DSCI 552, Group 26
 ## Date: Nov.-Dec. 2020
 
 # Objectives
-In this project we tend to build a Regression model that uses the [Support Vector Machines] (https://scikit-learn.org/stable/modules/svm.html) (SVMs) with RBF kernel algorithm to predict the rating of movies based on the review made. For this aim, we will be using a dataset called “Dataset_IMDB” from [SentimentDictionaries](hhttps://github.com/nproellochs/SentimentDictionaries) library compiled by Nicolas Pröllochs and Stefan Feuerriegel Copyright © under the MIT License. [Here](hhttps://github.com/nproellochs/SentimentDictionaries/blob/master/Dataset_IMDB.csv) is a direct link to the dataset which is sourced open in github.com.
+In this project we tend to build a Regression model that uses the [Support Vector Machines](https://scikit-learn.org/stable/modules/svm.html) (SVMs) with RBF kernel algorithm to predict the rating of movies based on the review made. For this aim, we will be using a dataset called “Dataset_IMDB” from [SentimentDictionaries](hhttps://github.com/nproellochs/SentimentDictionaries) library compiled by Nicolas Pröllochs and Stefan Feuerriegel Copyright © under the MIT License. [Here](hhttps://github.com/nproellochs/SentimentDictionaries/blob/master/Dataset_IMDB.csv) is a direct link to the dataset which is sourced open in github.com.
 The main objective of this study is to answer the following predictive question using our model:
 
-[Go to the Support Web Site](https://support.west-wind.com)
 
 “Given a review of a specific movie from one of the critics of the list below, what is the critic’s rating of the movie based on a number between 0 and 1?”
 
@@ -31,6 +30,8 @@ The Exploratory Data Analysis (EDA) for this project can be found in EDA folder 
 
 # References
 1- Varada Kolhatkar. 2020, “MDS Machine Learning Repository.” University of British Columbia, Vancouver, (https://github.ubc.ca/MDS-2020-21/DSCI_571_sup-learn-1_students)
+
 2- Dua, Dheeru, and Casey Graff. 2017. “UCI Machine Learning Repository.” University of California, Irvine, School of Information; Computer Sciences. (http://archive.ics.uci.edu/ml)
+
 3- Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani, 2009, “An Introduction to Statistical Learning with Application in R”, Springer Publishing
 
