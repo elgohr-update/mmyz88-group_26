@@ -3,7 +3,7 @@ Group repository for DSCI 552, Group 26
 # Movie Review Rating Predictor
 
 ## Authors: Yuanzhe Marco Ma, Arash Shamseddini, Kaicheng Tan, Zhenrui Yu
-## Date: Nov.-Dec. 2020
+## Nov.-Dec. 2020
 
 # Objectives
 In this project we tend to build a Regression model that uses the [Support Vector Machines](https://scikit-learn.org/stable/modules/svm.html) (SVMs) with RBF kernel algorithm to predict the rating of movies based on the review made. For this aim, we will be using a dataset called “Dataset_IMDB” from [SentimentDictionaries](hhttps://github.com/nproellochs/SentimentDictionaries) library compiled by Nicolas Pröllochs and Stefan Feuerriegel Copyright © under the MIT License. [Here](hhttps://github.com/nproellochs/SentimentDictionaries/blob/master/Dataset_IMDB.csv) is a direct link to the dataset which is sourced open in github.com.
@@ -17,10 +17,18 @@ The main objective of this study is to answer the following predictive question 
 | Dennis Schwartz |  
 | James Berardinelli |   
 | Scott Renshaw | 
-| STEVE RHODES | 
+| Steve Rhodes | 
 
 # Dataset
 The “Dataset_IMDB” is a mid-sized dataset of 5006 movie reviews from the four critics. It has four columns as shown in below table.
+
+|  Column Name	 | Column Type	 |  Description |  
+|---|---|---|---|---|
+|  Id |  Numeric | Unique ID assigned to each observation|
+|   Text|  Free Text	 | Body of the review content|
+|  Author | Categorical  | Author's name of the review|
+|  Rating | Numeric  | Ratings given along with the review|
+
 
 # Analysis
 For the purpose of this project, we will use SVM with RBF kernel algorithm for our model. We have split the dataset into 80-20 % proportion for the training and test splits respectively. We have built our model using the training portion to come up with the best predictor. Next, we have examined the model using the test split to evaluate its performance. The results of the analysis is in the Report folder [here](https://github.com/UBC-MDS/group_26).
