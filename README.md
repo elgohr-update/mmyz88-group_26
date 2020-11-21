@@ -23,7 +23,7 @@ The main objective of this study is to answer the following predictive question 
 The “Dataset_IMDB” is a mid-sized dataset of 5006 movie reviews from the four critics. It has four columns as shown in below table.
 
 |  Column Name	 | Column Type	 |  Description |  
-|---|---|---|---|---|
+|---|---|---|
 |  Id |  Numeric | Unique ID assigned to each observation|
 |   Text|  Free Text	 | Body of the review content|
 |  Author | Categorical  | Author's name of the review|
