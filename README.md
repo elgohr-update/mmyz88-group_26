@@ -32,21 +32,31 @@ The “Dataset_IMDB” is a mid-sized dataset of 5006 movie reviews from the fou
 
 # Analysis
 For the purpose of this project, we will use SVM with RBF kernel algorithm for our model. We have split the dataset into 80-20 % proportion for the training and test splits respectively. We have built our model using the training portion to come up with the best predictor. Next, we have examined the model using the test split to evaluate its performance. The results of the analysis is in the Report folder [here](https://github.com/UBC-MDS/group_26). These include, but are not limited to, tabeles that summarize the prediction scores as well as figures that show the relation between explanatory variables and the response, interactively.
+
 We will go further with our analysis and use other regression models to predict the ratings and make comparison with the SVM in terms of accuracy and other metrics.
 
 # Exploratory Data Analysis
 The Exploratory Data Analysis (EDA) for this project can be found in EDA folder [here](https://github.com/UBC-MDS/group_26/tree/main/EDA) which contains statistical information of the dataset presented in both tables and plots. As an example we have included:
+
 1- A histogram to illustrate the distribution of the ratings.
+
 2- A table that lists the 20 "most frequent" words appeared in all reviews.
+
 3- A chart to depict the relation between the lenght of the reviews and the scored rating.
 
 # Dependencies
 Python 3.7.4 and Python packages:
+
 	docopt=0.6.2
+
 	requests=2.22.0
+
 	pandas=0.25.1R
+
 	feather-format=0.4.0
+
     altair=4.1.0
+
     scikit-learn=0.23.2
 
 # References
@@ -55,5 +65,4 @@ Python 3.7.4 and Python packages:
 2- Dua, Dheeru, and Casey Graff. 2017. “UCI Machine Learning Repository.” University of California, Irvine, School of Information; Computer Sciences. (http://archive.ics.uci.edu/ml)
 
 3- Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani, 2009, “An Introduction to Statistical Learning with Application in R”, Springer Publishing
-
 
