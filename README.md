@@ -42,7 +42,7 @@ The Exploratory Data Analysis (EDA) for this project can be found in EDA folder 
 
 2- A table that lists the 20 "most frequent" words appeared in all reviews.
 
-3- A chart to depict the relation between the lenght of the reviews and the scored rating.
+3- A chart to depict the relation between the length of the reviews and the scored rating.
 
 # Dependencies
 Python 3.7.4 and Python packages:
