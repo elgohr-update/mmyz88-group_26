@@ -1,3 +1,5 @@
+# authors: Yuanzhe Marco Ma, Arash Shamseddini, Kaicheng Tan, Zhenrui Yu
+# date: 2020-11-25
 """Fits a SVR model on the preprocessed data from the IMDB review data set.
    Saves the model with optimized hyper-parameters, as well as the search result.
 
@@ -47,7 +49,7 @@ def main(train, out):
             ('ord', OrdinalEncoder(categories=[['neg', 'compound', 'neu', 'pos']]), ordinal_features)
         ]
     )
-    pipe = Pipeline(
+    ml_pipe = Pipeline(
         steps=[
             ("prepro", preprocessor),
             ("svr", SVR())
@@ -59,7 +61,7 @@ def main(train, out):
     param_grid = {
         'svr__gamma': np.arange(0.0001, 0.0005, 0.00003)
     }
-    hyper_parameters_search = GridSearchCV(pipe, param_grid=param_grid, n_jobs=-1, scoring='r2', verbose=1)
+    hyper_parameters_search = GridSearchCV(ml_pipe, param_grid=param_grid, n_jobs=-1, scoring='r2', verbose=1)
     hyper_parameters_search.fit(X_train, y_train)
     print(f'R2 score for best model: {hyper_parameters_search.best_score_}')
 
