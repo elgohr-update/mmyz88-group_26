@@ -17,6 +17,13 @@ from sklearn.model_selection import (
     train_test_split,
 )
 from docopt import docopt
+import nltk
+
+nltk.download("vader_lexicon")
+nltk.download("punkt")
+
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 
 opt = docopt(__doc__)
 def main(input_file, out_dir):
@@ -24,6 +31,48 @@ def main(input_file, out_dir):
 
     # split trainig and test data
     train_df, test_df = train_test_split(data, test_size=0.2, random_state=123)
+
+    sid = SentimentIntensityAnalyzer()
+
+    # Define some functions that are useful for our feature engineering
+    def get_length_in_words(text):
+        """
+        Returns the length of the text in words.
+
+        Parameters:
+        ------
+        text: (str)
+        the input text
+
+        Returns:
+        -------
+        length of tokenized text: (int)
+        """
+        return len(nltk.word_tokenize(text))
+
+
+    def get_sentiment(text): 
+        """
+        Returns the maximum scoring sentiment of the text
+
+        Parameters:
+        ------
+        text: (str)
+        the input text
+
+        Returns:
+        -------
+        sentiment of the text: (str)
+        """
+        scores = sid.polarity_scores(text)
+        return max(scores, key=lambda x: scores[x])
+    
+    train_df = train_df.assign(n_words=train_df["Text"].apply(get_length_in_words))
+    train_df = train_df.assign(sentiment=train_df["Text"].apply(get_sentiment))
+
+    test_df = test_df.assign(n_words=test_df["Text"].apply(get_length_in_words))
+    test_df = test_df.assign(sentiment=test_df["Text"].apply(get_sentiment))  
+    # save traing and test data in different csv file
     out_dir_train = out_dir + '/train.csv'
     out_dir_test = out_dir + '/test.csv'
 
