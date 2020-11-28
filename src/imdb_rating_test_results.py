@@ -49,7 +49,7 @@ def main(model_path, test, out):
 
     # Generate visualization
     predict_true_df = pd.DataFrame({'predict': prediction, 'true': y_test})
-    identity_line = alt.Chart(pd.DataFrame({'predict': [0., 1.], 'true': [0., 1.]})).mark_line().encode(
+    identity_line = alt.Chart(pd.DataFrame({'predict': [0., 10.], 'true': [0., 10.]})).mark_line().encode(
         x=alt.X('predict'),
         y=alt.Y('true'),
     )

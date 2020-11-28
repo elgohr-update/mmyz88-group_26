@@ -60,7 +60,7 @@ def main(train, out):
     # Tune hyper-parameters
     print(f'Searching for hyper-parameters')
     param_grid = {
-        'svr__gamma': np.arange(0.0001, 0.0005, 0.00003)
+        'svr__gamma': np.arange(0.0001, 0.0015, 0.0001)
     }
     hyper_parameters_search = GridSearchCV(ml_pipe, param_grid=param_grid, n_jobs=-1, scoring='r2', verbose=1)
     hyper_parameters_search.fit(X_train, y_train)
