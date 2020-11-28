@@ -77,7 +77,7 @@ def main(train, out):
 
     # Save pipeline
     print(f'Writing model to directory: {arguments["<out>"]}')
-    Path(os.path.dirname(out)).mkdir(parents=True, exist_ok=True)
+    Path(out).mkdir(parents=True, exist_ok=True)
     joblib.dump(final_model, os.path.join(out, 'model.pkl'), compress=3)
 
 
