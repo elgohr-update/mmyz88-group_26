@@ -33,13 +33,14 @@ from sklearn.svm import SVR
 numeric_features = ['n_words']
 text_feature = 'Text'
 ordinal_features = ['sentiment']
+drop_features = ['Id', 'Author']
 target = 'Rating'
 
 
 def main(train, out):
     # Load data set
     train_df = pd.read_csv(train)
-    X_train, y_train = train_df.drop(columns=[target, 'Id', 'Author']), train_df[target]
+    X_train, y_train = train_df.drop(columns=[target] + drop_features), train_df[target]
 
     # Create ML pipeline
     preprocessor = ColumnTransformer(
