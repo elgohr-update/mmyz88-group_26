@@ -10,7 +10,7 @@ In this project we tend to build a Regression model that uses the [Support Vecto
 The main objective of this study is to answer the following predictive question using our model:
 
 
-“Given a review of a specific movie from one of the critics of the list below, what is the critic’s rating of the movie based on a number between 0 and 1?”
+“Given a review of a specific movie from one of the critics of the list below, what is the critic’s rating of the movie based on a number between 0 and 10?”
 
 | Critics   |       
 |----------|
@@ -18,6 +18,8 @@ The main objective of this study is to answer the following predictive question 
 | James Berardinelli |   
 | Scott Renshaw | 
 | Steve Rhodes | 
+
+This study is in fact based on Sentiment Analysis (SA) through regression approach. Sentiment Analysis or Opinion Mining (OM) is the computational study of people’s opinions, attitudes and emotions toward an entity. The entity can represent individuals, events or topics. These topics are most likely to be covered by reviews.
 
 # Dataset
 The “Dataset_IMDB” is a mid-sized dataset of 5006 movie reviews from the four critics. It has four columns as shown in below table.
@@ -44,6 +46,26 @@ The Exploratory Data Analysis (EDA) for this project can be found in EDA folder 
 
 3- A chart to depict the relation between the length of the reviews and the scored rating.
 
+# Usage
+Please make sure that you are at the root folder of this project.
+Then you can run each of the components by the shell command below:
+```shell script
+# Download raw data from the original repository
+python src/download_data.py https://github.com/nproellochs/SentimentDictionaries/raw/master/Dataset_IMDB.csv data/raw/Dataset_IMDB.csv
+
+# Generate visualizations necessary for analysis reports
+python src/eda_imdb.py data/raw/Dataset_IMDB.csv results
+
+# Pre-process data
+python src/pre_process.py --input_file=data/raw/Dataset_IMDB.csv --out_dir=data/processed
+
+# Generate and persist ML model
+python src/imdb_rating_predict_model.py data/processed/train.csv results
+
+# Evaluate the model with test set
+python src/imdb_rating_test_results.py results/model.pkl data/processed/test.csv results
+```
+
 # Dependencies
 Python 3.7.4 and Python packages:
 
@@ -66,3 +88,4 @@ Python 3.7.4 and Python packages:
 
 3- Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani, 2009, “An Introduction to Statistical Learning with Application in R”, Springer Publishing
 
+4- Walaa Medhat, Ahmed Hassan and Hoda Korashy, 2014, “Sentiment analysis algorithms and applications: A survey”, Elsevier Publishing
