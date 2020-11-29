@@ -53,11 +53,11 @@ Then you can run each of the components by the shell command below:
 # Download raw data from the original repository
 python src/download_data.py https://github.com/nproellochs/SentimentDictionaries/raw/master/Dataset_IMDB.csv data/raw/Dataset_IMDB.csv
 
+# Generate visualizations necessary for analysis reports
+python src/eda_imdb.py data/raw/Dataset_IMDB.csv results
+
 # Pre-process data
 python src/pre_process.py --input_file=data/raw/Dataset_IMDB.csv --out_dir=data/processed
-
-# Generate visualizations necessary for analysis reports
-python src/eda_imdb.py data/processed/train.csv results
 
 # Generate and persist ML model
 python src/imdb_rating_predict_model.py data/processed/train.csv results

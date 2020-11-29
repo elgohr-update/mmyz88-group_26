@@ -34,19 +34,19 @@ def main(data, out):
     ).configure_mark(
         opacity=0.2,
         color='steelblue'
-    ).save(os.path.join(out, 'histogram_rating_distribution.html'))
+    ).save(os.path.join(out, 'histogram_rating_distribution.svg'))
 
     alt.Chart(train_df, title='Rating of Critics').mark_boxplot().encode(
         x='Rating',
         y='Author',
         color='Author'
-    ).save(os.path.join(out, 'boxplot_rating_critics.html'))
+    ).save(os.path.join(out, 'boxplot_rating_critics.svg'))
 
-    alt.Chart(train_df,
-              title='Relationship between Rating and Number of Words in the review').mark_line().encode(
-        x=alt.X('n_words', bin=True, title='Number of Words'),
-        y=alt.Y('mean(Rating)', title="Rating")
-    ).save(os.path.join(out, 'line_rating_vs_num_words.html'))
+    train_df.loc[:, 'TextLength'] = train_df['Text'].str.len()
+    alt.Chart(train_df, title='Text length vs ratings').mark_bar().encode(
+        x=alt.X('Rating', bin=True, title='Rating'),
+        y=alt.Y('mean(TextLength):Q', title='Mean of the text length')
+    ).save(os.path.join(out, 'histogram_rating_vs_text_length.svg'))
 
 
 if __name__ == '__main__':
