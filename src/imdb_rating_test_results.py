@@ -45,7 +45,7 @@ def main(model_path, test, out):
     pd.DataFrame({
         'r2': [r2_score(y_test, prediction)],
         'rmse': [mean_squared_error(y_test, prediction, squared=False)]
-    }, index=['model']).to_csv(os.path.join(out, 'metrics.csv'))
+    }, index=['model']).to_csv(os.path.join(out, 'model_test_scores.csv'))
 
     # Generate visualization
     predict_true_df = pd.DataFrame({'predict': prediction, 'true': y_test})
