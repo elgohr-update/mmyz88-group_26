@@ -67,11 +67,14 @@ def main(input_file, out_dir):
         scores = sid.polarity_scores(text)
         return max(scores, key=lambda x: scores[x])
     
+    train_df = train_df.assign(Rating=train_df["Rating"]*10)
     train_df = train_df.assign(n_words=train_df["Text"].apply(get_length_in_words))
     train_df = train_df.assign(sentiment=train_df["Text"].apply(get_sentiment))
-
+    
+    test_df = test_df.assign(Rating=train_df["Rating"]*10)
     test_df = test_df.assign(n_words=test_df["Text"].apply(get_length_in_words))
     test_df = test_df.assign(sentiment=test_df["Text"].apply(get_sentiment))  
+
     # save traing and test data in different csv file
     out_dir_train = out_dir + '/train.csv'
     out_dir_test = out_dir + '/test.csv'
