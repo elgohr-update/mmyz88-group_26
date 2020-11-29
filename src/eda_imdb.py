@@ -28,11 +28,7 @@ def main(data, out):
 
     alt.Chart(train_df, title='Rating Distribution').mark_bar().encode(
         x=alt.X('Rating', bin=True, title='Rating'),
-        y=alt.Y('count()', title="Counts")).configure_axis(
-        grid=False).configure_view(
-        strokeOpacity=0
-    ).configure_mark(
-        opacity=0.2,
+        y=alt.Y('count()', title="Counts")).configure_mark(
         color='steelblue'
     ).save(os.path.join(out, 'histogram_rating_distribution.svg'))
 
