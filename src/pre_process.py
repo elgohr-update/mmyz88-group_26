@@ -10,9 +10,7 @@ Options:
 """
 
 import os
-import urllib.request
 import pandas as pd
-from pathlib import Path
 from sklearn.model_selection import (
     train_test_split,
 )
@@ -26,6 +24,8 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
 opt = docopt(__doc__)
+
+
 def main(input_file, out_dir):
     data = pd.read_csv(input_file)
 
@@ -50,7 +50,6 @@ def main(input_file, out_dir):
         """
         return len(nltk.word_tokenize(text))
 
-
     def get_sentiment(text): 
         """
         Returns the maximum scoring sentiment of the text
@@ -67,11 +66,11 @@ def main(input_file, out_dir):
         scores = sid.polarity_scores(text)
         return max(scores, key=lambda x: scores[x])
     
-    train_df = train_df.assign(Rating=train_df["Rating"]*10)
+    train_df = train_df.assign(Rating=train_df["Rating"] * 10.0)
     train_df = train_df.assign(n_words=train_df["Text"].apply(get_length_in_words))
     train_df = train_df.assign(sentiment=train_df["Text"].apply(get_sentiment))
     
-    test_df = test_df.assign(Rating=train_df["Rating"]*10)
+    test_df = test_df.assign(Rating=test_df["Rating"] * 10.0)
     test_df = test_df.assign(n_words=test_df["Text"].apply(get_length_in_words))
     test_df = test_df.assign(sentiment=test_df["Text"].apply(get_sentiment))  
 
@@ -87,6 +86,7 @@ def main(input_file, out_dir):
         train_df.to_csv(out_dir_train, index=False)
         os.makedirs(os.path.dirname(out_dir_test))
         test_df.to_csv(out_dir_test, index=False)
+
+
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--out_dir"])
-    
