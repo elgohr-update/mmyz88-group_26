@@ -47,24 +47,19 @@ The Exploratory Data Analysis (EDA) for this project can be found in EDA folder 
 3- A chart to depict the relation between the length of the reviews and the scored rating.
 
 # Usage
-Please make sure that you are at the root folder of this project.
-Then you can run each of the components by the shell command below:
-```shell script
-# Download raw data from the original repository
-python src/download_data.py https://github.com/nproellochs/SentimentDictionaries/raw/master/Dataset_IMDB.csv data/raw/Dataset_IMDB.csv
+To replicate the analysis: 
+- Clone this repository
+- Install the [dependencies](#dependencies) listed below
+- Run the following shell command from the root directory of this project:
+  ```shell
+  make all
+  ```
 
-# Generate visualizations necessary for analysis reports
-python src/eda_imdb.py data/raw/Dataset_IMDB.csv results
-
-# Pre-process data
-python src/pre_process.py --input_file=data/raw/Dataset_IMDB.csv --out_dir=data/processed
-
-# Generate and persist ML model
-python src/imdb_rating_predict_model.py data/processed/train.csv results
-
-# Evaluate the model with test set
-python src/imdb_rating_test_results.py results/model.pkl data/processed/test.csv results
-```
+To clean up the repository to its initial state:
+- Run the following command from the root directory of this project:
+  ```shell
+  make clean
+  ```
 
 # Dependencies
 Python 3.7.4 and Python packages:
