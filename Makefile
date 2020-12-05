@@ -25,13 +25,13 @@ results/model.pkl results/hyper_param_search_result.csv: src/imdb_rating_predict
 	python src/imdb_rating_predict_model.py data/processed/train.csv results
 
 # Model evaluation
-results/model_test_scores.csv results/true_vs_predict.html: src/imdb_rating_test_results.py results/model.pkl data/processed/test.csv
+results/model_test_scores.csv results/true_vs_predict.svg: src/imdb_rating_test_results.py results/model.pkl data/processed/test.csv
 	# Evaluate the model with test set
 	python src/imdb_rating_test_results.py results/model.pkl data/processed/test.csv results
 
 # Generate report
 doc/intermediate_report.html: results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg
-doc/intermediate_report.html: results/model_test_scores.csv results/true_vs_predict.html
+doc/intermediate_report.html: results/model_test_scores.csv results/true_vs_predict.svg
 doc/intermediate_report.html:
 	jupyter nbconvert --to notebook --inplace --execute doc/intermediate_report.ipynb
 	jupyter nbconvert --to html doc/intermediate_report.ipynb

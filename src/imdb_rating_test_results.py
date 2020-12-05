@@ -49,7 +49,7 @@ def main(model_path, test, out):
 
     # Generate visualization
     predict_true_df = pd.DataFrame({'predict': prediction, 'true': y_test})
-    identity_line = alt.Chart(pd.DataFrame({'predict': [0., 10.], 'true': [0., 10.]})).mark_line().encode(
+    identity_line = alt.Chart(pd.DataFrame({'predict': [0., 10.], 'true': [0., 10.]})).mark_line(color='red').encode(
         x=alt.X('predict'),
         y=alt.Y('true'),
     )
@@ -59,7 +59,9 @@ def main(model_path, test, out):
         x=alt.X('predict', title='Predicted rating'),
         y=alt.Y('true', title='True rating')
     )
-    (identity_line + scatter_plot).save(os.path.join(out, 'true_vs_predict.html'))
+    (scatter_plot + identity_line) \
+        .properties(width=500, height=450) \
+        .save(os.path.join(out, 'true_vs_predict.svg'))
 
 
 if __name__ == '__main__':

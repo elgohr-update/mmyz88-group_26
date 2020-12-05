@@ -62,7 +62,12 @@ def main(train, out):
     param_grid = {
         'svr__gamma': np.arange(0.0001, 0.0015, 0.0001)
     }
-    hyper_parameters_search = GridSearchCV(ml_pipe, param_grid=param_grid, n_jobs=-1, scoring='r2', verbose=1)
+    hyper_parameters_search = GridSearchCV(ml_pipe,
+                                           param_grid=param_grid,
+                                           n_jobs=-1,
+                                           scoring='r2',
+                                           return_train_score=True,
+                                           verbose=1)
     hyper_parameters_search.fit(X_train, y_train)
     print(f'R2 score for best model: {hyper_parameters_search.best_score_}')
 
