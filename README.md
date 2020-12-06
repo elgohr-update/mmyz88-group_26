@@ -38,13 +38,18 @@ For the purpose of this project, we will use SVM with RBF kernel algorithm for o
 We will go further with our analysis and use other regression models to predict the ratings and make comparison with the SVM in terms of accuracy and other metrics.
 
 # Exploratory Data Analysis
-The Exploratory Data Analysis (EDA) for this project can be found in EDA folder [here](https://github.com/UBC-MDS/group_26/tree/main/EDA) which contains statistical information of the dataset presented in both tables and plots. As an example we have included:
+The Exploratory Data Analysis (EDA) for this project can be found [here](https://ubc-mds.github.io/group_26/doc/imdb_rating_EDA.html) which contains statistical information of the dataset presented in both tables and plots. As an example we have included:
 
 1- A histogram to illustrate the distribution of the ratings.
 
 2- A table that lists the 20 "most frequent" words appeared in all reviews.
 
 3- A chart to depict the relation between the length of the reviews and the scored rating.
+
+Report for different machine learning model comparison can be found [here](https://ubc-mds.github.io/group_26/doc/model_comparison.html)
+
+# Report
+The final report can be found [here](https://ubc-mds.github.io/group_26/doc/imdb_rating_predict_report.html)
 
 # Usage
 To replicate the analysis: 
