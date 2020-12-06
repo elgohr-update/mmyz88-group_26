@@ -22,7 +22,7 @@ data/processed/train.csv data/processed/test.csv: src/pre_process.py data/raw/Da
 	python src/pre_process.py --input_file=data/raw/Dataset_IMDB.csv --out_dir=data/processed
 
 # Model tuning and fitting
-results/model.pkl results/hyper_param_search_result.csv: src/imdb_rating_predict_model.py # data/processed/train.csv
+results/model.pkl results/hyper_param_search_result.csv: src/imdb_rating_predict_model.py data/processed/train.csv
 	# Generate and persist ML model
 	python src/imdb_rating_predict_model.py data/processed/train.csv results
 
