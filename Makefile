@@ -2,7 +2,7 @@
 # author: Yuanzhe Marco Ma, Arash Shamseddini, Kaicheng Tan, Zhenrui Yu
 # date: 2020-12-02
 
-all : results/model_test_scores.csv results/histogram_rating_distribution.svg doc/intermediate_report.html
+all : doc/imdb_rating_EDA.html doc/imdb_rating_predict_report.html
 
 # Download raw data
 data/raw/Dataset_IMDB.csv: src/download_data.py
@@ -10,9 +10,11 @@ data/raw/Dataset_IMDB.csv: src/download_data.py
 	python src/download_data.py https://github.com/nproellochs/SentimentDictionaries/raw/master/Dataset_IMDB.csv data/raw/Dataset_IMDB.csv
 
 # Generate resources for EDA
-results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg: src/eda_imdb.py data/raw/Dataset_IMDB.csv
+results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg doc/imdb_rating_EDA.html: src/eda_imdb.py data/raw/Dataset_IMDB.csv
 	# Generate visualizations necessary for analysis reports
 	python src/eda_imdb.py data/raw/Dataset_IMDB.csv results
+	jupyter nbconvert --to notebook --inplace --execute doc/imdb_rating_EDA.ipynb
+	jupyter nbconvert --to html doc/imdb_rating_EDA.ipynb
 
 # Pre-process data
 data/processed/train.csv data/processed/test.csv: src/pre_process.py data/raw/Dataset_IMDB.csv
@@ -30,11 +32,11 @@ results/model_test_scores.csv results/true_vs_predict.svg: src/imdb_rating_test_
 	python src/imdb_rating_test_results.py results/model.pkl data/processed/test.csv results
 
 # Generate report
-doc/intermediate_report.html: results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg
-doc/intermediate_report.html: results/model_test_scores.csv results/true_vs_predict.svg
-doc/intermediate_report.html:
-	jupyter nbconvert --to notebook --inplace --execute doc/intermediate_report.ipynb
-	jupyter nbconvert --to html doc/intermediate_report.ipynb
+doc/imdb_rating_predict_report.html: results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg
+doc/imdb_rating_predict_report.html: results/model_test_scores.csv results/true_vs_predict.svg
+doc/imdb_rating_predict_report.html:
+	jupyter nbconvert --to notebook --inplace --execute doc/imdb_rating_predict_report.ipynb
+	jupyter nbconvert --to html doc/imdb_rating_predict_report.ipynb
 
 # Clean intermediate files
 clean :
