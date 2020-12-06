@@ -14294,7 +14294,7 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In this project, we look at the relationship between movie reviews and their IMDB scores (ranging from 0 ~ 10). Positive reviews are often related to high IMDB scores, while negative reviews indicate the opposite. While it is easy for humans to understand a piece of review and guess the scores, we wonder if machines could understand it as well. Furthermore, we would like to automate this process, so that given a bunch of movie reviews, we are able to predict their corresponding IMDB scores easily. <br></p>
-<p>In this project, we use Support Vector Machines as our machine learning model.</p>
+<p>In this project, most of the data wrangling in this project is powered by the <a href="#c4">pandas</a> (McKinney 2010) library. The machine learning models and frameworks utilize <a href="#c3">sklearn</a> (Pedregosa et al. 2011). We use Support Vector Regressor (SVR) as our prediction model. <br></p>
 
 </div>
 </div>
@@ -14314,12 +14314,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Automation">Automation<a class="anchor-link" href="#Automation">&#182;</a></h4>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To automate data retrieval, we have written a script to obtain the dataset with Python. The script can be accessed <a href="../src/download_data.py">here</a>.</p>
+<h4 id="Automation">Automation<a class="anchor-link" href="#Automation">&#182;</a></h4><p>To automate data retrieval, we have written a script to obtain the dataset with Python. The script can be accessed <a href="../src/download_data.py">here</a>.</p>
 
 </div>
 </div>
@@ -14330,7 +14325,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's look into the dataset by performing some <strong>Exploratory Data Analysis (EDA)</strong>.</p>
+<p>Let's look into the dataset by performing some <strong>Exploratory Data Analysis (EDA)</strong>. <br></p>
 
 </div>
 </div>
@@ -14372,13 +14367,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We realized that <code>Author</code> may have significant relation to ratings, but since we are making a generalized model for reviews from any audience, we have decided to discard it for this analysis.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Therefore, we will <strong>drop</strong> both the <code>Author</code> and <code>Id</code> columns.</p>
+<p>We realized that <code>Author</code> may have significant relation to ratings, but since we are making a generalized model for reviews from any audience, we have decided to discard it for this analysis. Therefore, we will <strong>drop</strong> both the <code>Author</code> and <code>Id</code> columns.</p>
 
 </div>
 </div>
@@ -14514,8 +14503,7 @@ We selected 3 candidate models that are suitable for regression prediction:</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The model packages we utilized are developed by <a href="#c3">sklearn</a> (Pedregosa et al. 2011). <br>
-We tuned the hyperparameters of each model using sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a>. <br>
+<p>We tuned the hyperparameters of each model using sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a>. <br>
 Below are comparative cross-validation scores of the 3 models.</p>
 <table>
 <thead><tr>
@@ -14555,7 +14543,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Winner:-SVR">Winner: <code>SVR</code><a class="anchor-link" href="#Winner:-SVR">&#182;</a></h4><p>We selected <code>SVR</code> with a combindation of two considerations - cross-validation score and risk of overfitting. <code>SVR</code> has a validation score comparable to the <code>Ridge</code> regressor, while having the least amount of overfitting. For more details on the model selection process, see <a href="../doc/model_selection.ipynb">this report</a>.</p>
+<h4 id="Winner:-SVR">Winner: <code>SVR</code><a class="anchor-link" href="#Winner:-SVR">&#182;</a></h4><p>We selected <code>SVR</code> with a combindation of two considerations - cross-validation scores and the risk of overfitting. <code>SVR</code> was selected because it has a CV score comparable to the <code>Ridge</code> regressor, while having the least amount of overfitting. For more details on the model selection process, see <a href="../doc/model_selection.ipynb">this report</a>.</p>
 <p>Below is a detailed specification of our final model.</p>
 
 </div>
@@ -14586,8 +14574,83 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="VI.-Predicting-">VI. Predicting <a class="anchor" id="6" /><a class="anchor-link" href="#VI.-Predicting-">&#182;</a></h1>
+<h1 id="VI.-Prediction-Results-">VI. Prediction Results <a class="anchor" id="6" /><a class="anchor-link" href="#VI.-Prediction-Results-">&#182;</a></h1>
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Below is our model's prediction scores on the test dataset.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/model_test_scores.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scores</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>r2</th>
+      <th>rmse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>model</th>
+      <td>0.50371</td>
+      <td>1.286077</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14621,7 +14684,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="VII.-Reflection-and-Improvements-">VII. Reflection and Improvements <a class="anchor" id="7" /><a class="anchor-link" href="#VII.-Reflection-and-Improvements-">&#182;</a></h2>
+<h1 id="VII.-Reflection-and-Improvements-">VII. Reflection and Improvements <a class="anchor" id="7" /><a class="anchor-link" href="#VII.-Reflection-and-Improvements-">&#182;</a></h1>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14665,10 +14728,11 @@ In fact, there are a few areas of improvement.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References-">References <a class="anchor" id="" /><a class="anchor-link" href="#References-">&#182;</a></h2><ol>
+<h2 id="References-">References <a class="anchor" id="8" /><a class="anchor-link" href="#References-">&#182;</a></h2><ol>
 <li>Dua, Dheeru, and Casey Graff. 2017. “UCI Machine Learning Repository.” University of California, Irvine, School of Information; Computer Sciences. (<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>) <a class="anchor" id="c1"></a></li>
 <li>Bird, Steven, Edward Loper and Ewan Klein (2009). Natural Language Processing with Python.  O'Reilly Media Inc. (<a href="https://www.nltk.org/">https://www.nltk.org/</a>) <a class="anchor" id="c2"></a></li>
 <li>Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011. (<a href="https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html">https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html</a>) <a class="anchor" id="c3"></a></li>
+<li>McKinney, W., &amp; others. (2010). Data structures for statistical computing in python. In Proceedings of the 9th Python in Science Conference (Vol. 445, pp. 51–56). (<a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a>)  <a class="anchor" id="c4"></a></li>
 <li>Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani, 2009, “An Introduction to Statistical Learning with Application in R”, Springer Publishing</li>
 </ol>
 

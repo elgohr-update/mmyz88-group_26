@@ -37,6 +37,7 @@ doc/imdb_rating_predict_report.html: results/model_test_scores.csv results/true_
 doc/imdb_rating_predict_report.html:
 	jupyter nbconvert --to notebook --inplace --execute doc/imdb_rating_predict_report.ipynb
 	jupyter nbconvert --to html doc/imdb_rating_predict_report.ipynb
+    
 doc/model_comparison.html:
 	jupyter nbconvert --to html doc/model_comparison.ipynb
 
