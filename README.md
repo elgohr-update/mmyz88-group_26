@@ -66,20 +66,30 @@ To clean up the repository to its initial state:
   make clean
   ```
 
+# Dependency diagram of Makefile
+![Dependency diagram of the Makefile](results/dependency_diagram_makefile.png)
+
 # Dependencies
-Python 3.7.4 and Python packages:
+Python 3.8 and Python packages:
+```
+altair=4.1.*
 
-	docopt=0.6.2
+altair_saver=0.5.*
 
-	requests=2.22.0
+docopt=0.6.*
 
-	pandas=0.25.1R
+jupyterlab=2.2.*
 
-	feather-format=0.4.0
+nltk=3.4.*
 
-    altair=4.1.0
+numpy=1.19.*
 
-    scikit-learn=0.23.2
+pandas=1.1.*
+
+pandas-profiling=2.9.*
+
+scikit-learn=0.23.*
+```
 
 # References
 1- Varada Kolhatkar. 2020, “MDS Machine Learning Repository.” University of British Columbia, Vancouver, (https://github.ubc.ca/MDS-2020-21/DSCI_571_sup-learn-1_students)
