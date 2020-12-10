@@ -2,7 +2,7 @@
 # author: Yuanzhe Marco Ma, Arash Shamseddini, Kaicheng Tan, Zhenrui Yu
 # date: 2020-12-02
 
-all : doc/imdb_rating_EDA.html doc/imdb_rating_predict_report.html
+all : doc/imdb_rating_EDA.html doc/imdb_rating_predict_report.html results/dependency_diagram_makefile.png
 
 # Download raw data
 data/raw/Dataset_IMDB.csv: src/download_data.py
@@ -41,7 +41,12 @@ doc/imdb_rating_predict_report.html:
 doc/model_comparison.html:
 	jupyter nbconvert --to html doc/model_comparison.ipynb
 
+results/dependency_diagram_makefile.png: Makefile
+	makefile2graph > Makefile.dot
+	dot -Tpng Makefile.dot -o results/dependency_diagram_makefile.png
+	rm -rf Makefile.dot
+
 # Clean intermediate files
 clean :
-	rm -rf data
-	rm -rf results
+	rm -rf data/*
+	rm -rf results/*
