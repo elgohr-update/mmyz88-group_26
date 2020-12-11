@@ -1,6 +1,6 @@
 # Docker file for the Movie Review Rating Predictor
 # Authors: Yuanzhe Marco Ma, Arash Shamseddini, Kaicheng Tan, Zhenrui Yu
-# Dec. 2020
+# Nov.-Dec. 2020
 
 FROM continuumio/miniconda3
 
