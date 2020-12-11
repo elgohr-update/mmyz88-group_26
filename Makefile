@@ -9,17 +9,17 @@ data/raw/Dataset_IMDB.csv: src/download_data.py
 	# Download raw data from the original repository
 	python src/download_data.py https://github.com/nproellochs/SentimentDictionaries/raw/master/Dataset_IMDB.csv data/raw/Dataset_IMDB.csv
 
-# Generate resources for EDA
-results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg doc/imdb_rating_EDA.html: src/eda_imdb.py data/raw/Dataset_IMDB.csv
-	# Generate visualizations necessary for analysis reports
-	python src/eda_imdb.py data/raw/Dataset_IMDB.csv results
-	jupyter nbconvert --to notebook --inplace --execute doc/imdb_rating_EDA.ipynb
-	jupyter nbconvert --to html doc/imdb_rating_EDA.ipynb
-
 # Pre-process data
 data/processed/train.csv data/processed/test.csv: src/pre_process.py data/raw/Dataset_IMDB.csv
 	# Pre-process data
 	python src/pre_process.py --input_file=data/raw/Dataset_IMDB.csv --out_dir=data/processed
+
+# Generate resources for EDA
+results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg doc/imdb_rating_EDA.html: src/eda_imdb.py doc/imdb_rating_EDA.ipynb data/processed/train.csv
+	# Generate visualizations necessary for analysis reports
+	python src/eda_imdb.py data/processed/train.csv results
+	jupyter nbconvert --to notebook --inplace --execute doc/imdb_rating_EDA.ipynb
+	jupyter nbconvert --to html doc/imdb_rating_EDA.ipynb
 
 # Model tuning and fitting
 results/model.pkl results/hyper_param_search_result.csv: src/imdb_rating_predict_model.py data/processed/train.csv
