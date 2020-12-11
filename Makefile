@@ -15,7 +15,7 @@ data/processed/train.csv data/processed/test.csv: src/pre_process.py data/raw/Da
 	python src/pre_process.py --input_file=data/raw/Dataset_IMDB.csv --out_dir=data/processed
 
 # Generate resources for EDA
-results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg doc/imdb_rating_EDA.html: src/eda_imdb.py data/processed/train.csv
+results/histogram_rating_distribution.svg results/boxplot_rating_critics.svg results/histogram_rating_vs_text_length.svg doc/imdb_rating_EDA.html: src/eda_imdb.py doc/imdb_rating_EDA.ipynb data/processed/train.csv
 	# Generate visualizations necessary for analysis reports
 	python src/eda_imdb.py data/processed/train.csv results
 	jupyter nbconvert --to notebook --inplace --execute doc/imdb_rating_EDA.ipynb
