@@ -95,7 +95,3 @@ scikit-learn=0.23.*
 3- Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani, 2009, “An Introduction to Statistical Learning with Application in R”, Springer Publishing
 
 4- Walaa Medhat, Ahmed Hassan and Hoda Korashy, 2014, “Sentiment analysis algorithms and applications: A survey”, Elsevier Publishing
-
-```python
-
-```
