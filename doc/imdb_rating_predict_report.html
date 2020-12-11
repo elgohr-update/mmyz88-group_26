@@ -9,7 +9,7 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
+    pre { line-height: 125%; }
 td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
 td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
@@ -14288,7 +14288,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="I.-Project-Overview-">I. Project Overview <a class="anchor" id="1" /><a class="anchor-link" href="#I.-Project-Overview-">&#182;</a></h1>
+<h1 id="I.-Project-Overview-">I. Project Overview <a class="anchor" id="1" /><a class="anchor-link" href="#I.-Project-Overview-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14300,7 +14300,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="II.-Where-Do-We-Get-the-Data?-">II. Where Do We Get the Data? <a class="anchor" id="2" /><a class="anchor-link" href="#II.-Where-Do-We-Get-the-Data?-">&#182;</a></h1>
+<h1 id="II.-Where-Do-We-Get-the-Data?-">II. Where Do We Get the Data? <a class="anchor" id="2" /><a class="anchor-link" href="#II.-Where-Do-We-Get-the-Data?-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14320,7 +14320,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="III.-What-does-the-data-look-like?-">III. What does the data look like? <a class="anchor" id="3" /><a class="anchor-link" href="#III.-What-does-the-data-look-like?-">&#182;</a></h1>
+<h1 id="III.-What-does-the-data-look-like?-">III. What does the data look like? <a class="anchor" id="3" /><a class="anchor-link" href="#III.-What-does-the-data-look-like?-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14440,7 +14440,7 @@ Below are the top 10 most frequent words in the reviews:</p>
 </tr>
 </tbody>
 </table>
-<p>As we can see, the most frequent words are often generic words such as prepositions and pronouns, which has little implication to our model learning. We might want to avoid overfitting to these words as we train our model.</p>
+<p>As we can see, the most frequent words are often generic words such as prepositions and pronouns, which has little implication to our model learning. We might want to avoid overfitting to these words as we train our model. See the column transformer in the <a href="#4">Pre-processing</a> section.</p>
 
 </div>
 </div>
@@ -14473,20 +14473,31 @@ A bar plot of <code>Text</code> length vs <code>Rating</code> is presented below
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="IV.-Pre-processing-">IV. Pre-processing <a class="anchor" id="4" /><a class="anchor-link" href="#IV.-Pre-processing-">&#182;</a></h1>
+<h1 id="IV.-Pre-processing-">IV. Pre-processing <a class="anchor" id="4" /><a class="anchor-link" href="#IV.-Pre-processing-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In addition to <code>Text</code> feature alone, we extracted two potentially useful columns that could enhance our machine learning model.</p>
-<h4 id="1.-n_words">1. <code>n_words</code><a class="anchor-link" href="#1.-n_words">&#182;</a></h4><p>As mentioned above, we suspect some correlation between review lengths and ratings. Therefore we created an <code>n_words</code> feature, which counts the number of words in each review.</p>
-<h4 id="2.-sentiment">2. <code>sentiment</code><a class="anchor-link" href="#2.-sentiment">&#182;</a></h4><p>We utilized the <a href="#c2"><strong>NLTK</strong></a> (Bird 2009) package to assist us in extracting the sentiment of each review. This <code>sentiment</code> feature will have four ordinal categories - ['neg', 'compound', 'neu', 'pos'].</p>
+<h2 id="New-Columns">New Columns<a class="anchor-link" href="#New-Columns">&#182;</a></h2><p>In addition to <code>Text</code> feature alone, we extracted two potentially useful columns that could enhance our machine learning model.</p>
+<ol>
+<li><code>n_words</code>: As mentioned above, we suspect some correlation between review lengths and ratings. Therefore we created an <code>n_words</code> feature, which counts the number of words in each review.  </li>
+<li><code>sentiment</code>: We utilized the <a href="#c2"><strong>NLTK</strong></a> (Bird 2009) package to assist us in extracting the sentiment of each review. This <code>sentiment</code> feature will have four ordinal categories - ['neg', 'compound', 'neu', 'pos']. </li>
+</ol>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="V.-Model-Selection-&amp;-Fitting-">V. Model Selection &amp; Fitting <a class="anchor" id="5" /><a class="anchor-link" href="#V.-Model-Selection-&amp;-Fitting-">&#182;</a></h1>
+<h2 id="Column-Transformers">Column Transformers<a class="anchor-link" href="#Column-Transformers">&#182;</a></h2><p>Now we have three columns to transform before fitting - <code>Review</code>, <code>n_words</code> and <code>sentiment</code>. <br></p>
+<p><code>Review</code>: since it is text feature, we will use sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">CountVectorizer</a> to transform the text into bag of words. As mentioned in the EDA, since the most frequent words are often meaningless, we added <code>stop_words=20</code> argument into the vectorizer to exclude the top 20 most frequent words. <br>
+<code>n_words</code>: we standardize the data with sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a> to avoid its scaling effect on the estimators. <br>
+<code>sentiment</code>: since it is ordinal data, we utilize sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">OrdinalEncoder</a> to encode the ordinal data in one-hot style.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="V.-Model-Selection-&amp;-Fitting-">V. Model Selection &amp; Fitting <a class="anchor" id="5" /><a class="anchor-link" href="#V.-Model-Selection-&amp;-Fitting-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14543,7 +14554,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Winner:-SVR">Winner: <code>SVR</code><a class="anchor-link" href="#Winner:-SVR">&#182;</a></h4><p>We selected <code>SVR</code> with a combindation of two considerations - cross-validation scores and the risk of overfitting. <code>SVR</code> was selected because it has a CV score comparable to the <code>Ridge</code> regressor, while having the least amount of overfitting. For more details on the model selection process, see <a href="../doc/model_selection.ipynb">this report</a>.</p>
+<h3 id="Winner:-Ridge">Winner: <code>Ridge</code><a class="anchor-link" href="#Winner:-Ridge">&#182;</a></h3><p>We selected <code>SVR</code> with a combindation of two considerations - cross-validation scores and the risk of overfitting. <code>SVR</code> was selected because it has a CV score comparable to the <code>Ridge</code> regressor, while having the least amount of overfitting. For more details on the model selection process, see <a href="../doc/model_selection.ipynb">this report</a>.</p>
 <p>Below is a detailed specification of our final model.</p>
 
 </div>
@@ -14574,7 +14585,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="VI.-Prediction-Results-">VI. Prediction Results <a class="anchor" id="6" /><a class="anchor-link" href="#VI.-Prediction-Results-">&#182;</a></h1>
+<h1 id="VI.-Prediction-Results-">VI. Prediction Results <a class="anchor" id="6" /><a class="anchor-link" href="#VI.-Prediction-Results-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14585,7 +14596,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14607,7 +14618,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
 
 
@@ -14637,8 +14648,8 @@ Below are comparative cross-validation scores of the 3 models.</p>
   <tbody>
     <tr>
       <th>model</th>
-      <td>0.50371</td>
-      <td>1.286077</td>
+      <td>0.543102</td>
+      <td>1.233982</td>
     </tr>
   </tbody>
 </table>
@@ -14655,10 +14666,8 @@ Below are comparative cross-validation scores of the 3 models.</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="1.-$R^2$,-RMSE-Scores">1. <strong>$R^2$</strong>, RMSE Scores<a class="anchor-link" href="#1.-$R^2$,-RMSE-Scores">&#182;</a></h4><p>$R^2$ and RMSE (Root-mean-squared-error) are two common metrics for evaluating a regression model's accuracy. <br></p>
-<ul>
-<li>The obtained $R^2$ score for the test set is <strong>0.5037</strong>, which was comparable to, and even better than our validation score.</li>
-<li>The RMSE score was 1.2861. This seems large because it means our predicted score can have a margin of error of over 1.2 points. </li>
-</ul>
+<p>The obtained $R^2$ score for the test set is <strong>0.5037</strong>, which was comparable to, and even better than our validation score. <br>
+The RMSE score was <strong>1.2861</strong>. This seems large because it means our predicted score can have a margin of error of over 1.2 points.</p>
 
 </div>
 </div>
@@ -14671,11 +14680,6 @@ Below are comparative cross-validation scores of the 3 models.</p>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><img src="../results/true_vs_predict.svg" alt="true_vs_predict"></p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote><p>There is an obvious difference between the predicted ratings and true ratings. In the true ratings, people tend to give whole number rating, i.e. 0.3 instead of 0.3247. Our model did not capture that.</p>
 </blockquote>
 <p>Despite that, most of the points are somewhat clustered around the identity line. This indicates that our model didn't seem to under-fit or over-fit.</p>
@@ -14684,7 +14688,7 @@ Below are comparative cross-validation scores of the 3 models.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="VII.-Reflection-and-Improvements-">VII. Reflection and Improvements <a class="anchor" id="7" /><a class="anchor-link" href="#VII.-Reflection-and-Improvements-">&#182;</a></h1>
+<h1 id="VII.-Reflection-and-Improvements-">VII. Reflection and Improvements <a class="anchor" id="7" /><a class="anchor-link" href="#VII.-Reflection-and-Improvements-">&#182;</a></h1><hr>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14728,7 +14732,9 @@ In fact, there are a few areas of improvement.</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References-">References <a class="anchor" id="8" /><a class="anchor-link" href="#References-">&#182;</a></h2><ol>
+<h2 id="References-">References <a class="anchor" id="8" /><a class="anchor-link" href="#References-">&#182;</a></h2><hr>
+
+<ol>
 <li>Dua, Dheeru, and Casey Graff. 2017. “UCI Machine Learning Repository.” University of California, Irvine, School of Information; Computer Sciences. (<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>) <a class="anchor" id="c1"></a></li>
 <li>Bird, Steven, Edward Loper and Ewan Klein (2009). Natural Language Processing with Python.  O'Reilly Media Inc. (<a href="https://www.nltk.org/">https://www.nltk.org/</a>) <a class="anchor" id="c2"></a></li>
 <li>Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011. (<a href="https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html">https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html</a>) <a class="anchor" id="c3"></a></li>
