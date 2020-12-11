@@ -28,7 +28,7 @@ from sklearn.preprocessing import (
     OrdinalEncoder,
     StandardScaler,
 )
-from sklearn.svm import SVR
+from sklearn.linear_model import Ridge
 
 numeric_features = ['n_words']
 text_feature = 'Text'
@@ -45,22 +45,22 @@ def main(train, out):
     # Create ML pipeline
     preprocessor = ColumnTransformer(
         transformers=[
-            ('text', CountVectorizer(max_features=20_000, max_df=0.6), text_feature),
+            ('text', CountVectorizer(max_features=20_000, stop_words='english'), text_feature),
             ('num', StandardScaler(), numeric_features),
             ('ord', OrdinalEncoder(categories=[['neg', 'compound', 'neu', 'pos']]), ordinal_features)
         ]
     )
     ml_pipe = Pipeline(
         steps=[
-            ("prepro", preprocessor),
-            ("svr", SVR())
+            ('prepro', preprocessor),
+            ('ridge', Ridge())
         ]
     )
 
     # Tune hyper-parameters
-    print(f'Searching for hyper-parameters')
+    print('Searching for hyper-parameters')
     param_grid = {
-        'svr__gamma': np.arange(0.0001, 0.0015, 0.0001)
+        'ridge__alpha': np.arange(500, 1000, 50)
     }
     hyper_parameters_search = GridSearchCV(ml_pipe,
                                            param_grid=param_grid,
