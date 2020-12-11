@@ -16,6 +16,8 @@ from pathlib import Path
 import altair as alt
 import pandas as pd
 from docopt import docopt
+from pandas_profiling import ProfileReport
+from sklearn.feature_extraction.text import CountVectorizer
 
 opt = docopt(__doc__)
 
@@ -25,6 +27,9 @@ def main(data, out):
 
     # Create output directories in not exist
     Path(out).mkdir(parents=True, exist_ok=True)
+
+    ProfileReport(train_df, title='Profiling report for the IMDB training data set') \
+        .to_file(os.path.join(out, 'profiling_report.html'))
 
     alt.Chart(train_df, title='Rating Distribution').mark_bar().encode(
         x=alt.X('Rating', bin=True, title='Rating'),
@@ -49,6 +54,16 @@ def main(data, out):
     ) \
         .properties(width=500, height=450) \
         .save(os.path.join(out, 'histogram_rating_vs_text_length.svg'))
+
+    vectorizer = CountVectorizer(stop_words='english')
+    imdb_text_counts = vectorizer.fit_transform(train_df['Text'])
+    pd.DataFrame(data=imdb_text_counts.sum(axis=0).tolist()[0],
+                 index=vectorizer.get_feature_names(), columns=['Count']) \
+        .sort_values('Count', ascending=False) \
+        .head(20) \
+        .rename_axis('Word') \
+        .reset_index() \
+        .to_csv(os.path.join(out, 'top_20_frequent_words.csv'), index=False)
 
 
 if __name__ == '__main__':
