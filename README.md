@@ -34,7 +34,7 @@ The “Dataset_IMDB” is a mid-sized dataset of 5006 movie reviews from the fou
 
 
 ## Analysis
-For the purpose of this project, we will use Ridge Regressor for our model. We have split the dataset into 80-20 % proportion for the training and test splits respectively. We have built our model using the training portion to come up with the best predictor. Next, we have examined the model using the test split to evaluate its performance. The results of the analysis is in the Report folder [here](https://github.com/UBC-MDS/group_26). These include, but are not limited to, tabeles that summarize the prediction scores as well as figures that show the relation between explanatory variables and the response, interactively.
+For the purpose of this project, we will use Ridge Regressor for our model. We have split the dataset into 80-20 % proportion for the training and test splits respectively. We have built our model using the training portion to come up with the best predictor. Next, we have examined the model using the test split to evaluate its performance. The results of the analysis is in the Report folder [here](doc). These include, but are not limited to, tabeles that summarize the prediction scores as well as figures that show the relation between explanatory variables and the response, interactively.
 
 We have also strengthened our analysis by utilizing other regression models to predict the ratings and comparing with the Ridge estimator in terms of accuracy and other metrics. A report for our model comparison can be found [here](https://ubc-mds.github.io/group_26/doc/model_comparison.html).
 
