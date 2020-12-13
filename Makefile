@@ -50,3 +50,4 @@ results/dependency_diagram_makefile.png: Makefile
 clean :
 	rm -rf data/*
 	rm -rf results/*
+	rm -rf doc/*.html
