@@ -9,7 +9,7 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; }
+    pre { line-height: 125%; margin: 0; }
 td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
 td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
@@ -14494,7 +14494,7 @@ Below are the top 10 most frequent words in the reviews:</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Note that when we use sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">CountVectorizer</a> to generate the word counts, we discarded the most frequent literals such as "the", "an", and so on by using the <code>stop_words='English'</code> argument. This allows us to ignore frequently used by meaningless words in English, as they have little implication to our ML model and could induce overfitting.</p>
+<p>Note that when we use sklearn's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">CountVectorizer</a> to generate the word counts, we discarded the most frequent literals such as "the", "an", and so on by using the <code>stop_words='English'</code> argument. This allows us to ignore frequently used but meaningless words in English, as they have little implication to our ML model and could cause overfitting.</p>
 
 </div>
 </div>
